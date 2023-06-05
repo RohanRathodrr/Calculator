@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#parent{
+    height: 221px;
+    width: 169px;
+    border: 1px solid black;
+    margin: 0 auto;
+    box-shadow: 2px 1px 3px rgb(82, 42, 120);
+    background-color: rgb(47, 54, 110);
+}
+#calculate{
+    height: 55px;
+    width: 157px;
+    border: none
+    /* border-bottom: 1px solid; */
+    padding:0px
+
+}
+#print{
+    height: 56px;
+    width: 169px;
+    border: none;
+    border-bottom: 3px solid rgb(18, 17, 20);
+    padding: 0px;
+    background-color: rgb(47, 54, 110);
+    color: white;
+}
+#key{
+    /* margin-top: 10px; */
+}
+button[type="text"]{
+    height: 30px;
+    width: 34px;
+    justify-content: center;
+    margin-left: 3px;
+    margin-top: 6px;
+    box-shadow: 2px 2px 3px rgb(188, 225, 139);
+}
+    </style>
+</head>
+<body>
+    <div id="parent">
+    <div id="calculate">
+        <input type="text" id="print">
+    </div>
+    <div id="key"> 
+        <table>
+        <tr>
+            <td><button type="text" id="in1">7</button></td>
+            <td><button type="text" id="in1">8</button></td>
+            <td><button type="text" id="in1">9</button></td>
+            <td><button type="text" id="in1">C</button></td>
+        </tr>
+        <tr>
+            <td><button type="text" id="in1">4</button></td>
+            <td><button type="text" id="in1">5</button></td>
+            <td><button type="text" id="in1">6</button></td>
+            <td><button type="text" id="in1">*</button></td>
+        </tr>
+        <tr>
+            <td><button type="text" id="in1">1</button></td>
+            <td><button type="text" id="in1">2</button></td>
+            <td><button type="text" id="in1">3</button></td>
+            <td><button type="text" id="in1">-</button></td>
+        </tr>
+        <tr>
+            <td><button type="text" id="in1">0</button></td>
+            <td><button type="text" id="in1">.</button></td>
+            <td><button type="text" id="in1">=</button></td>
+            <td><button type="text" id="in1">+</button></td>
+        </tr>
+    </table>
+    </div>
+</div>
+<script>
+ let ele1=document.getElementById('print')
+ buttons=document.querySelectorAll('button')
+ let ele1Value ='';
+ for(item of buttons){
+    item.addEventListener('click' , (e)=>{
+        buttonText=e.target.innerText;
+        // console.log('button text is',buttonText);
+        if (buttonText=='*'){
+            ele1Value += buttonText;
+            ele1.value = ele1Value
+        }
+        else if(buttonText=='C'){
+            ele1.value='';
+        }
+        else if (buttonText=='='){
+            ele1.value=eval(ele1Value);
+        }
+        else{
+            ele1Value += buttonText;
+            ele1.value = ele1Value
+        }
+    })
+ }
+   
+ 
+</script>
+</body>
+</html>
